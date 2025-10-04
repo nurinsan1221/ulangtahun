@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love 🌸</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top, #ffdde1, #ee9ca7);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 3px; height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite;
+    }
+    @keyframes twinkle {
+      0%,100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+      position: relative;
+      background: rgba(255,255,255,0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      color: #e63946;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      color: #444;
+      margin: 10px 0;
+    }
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 40px;
+      height: 60px;
+      border-radius: 50%;
+      background: pink;
+      animation: float 8s linear infinite;
+    }
+    @keyframes float {
+      to { transform: translateY(-120vh) rotate(360deg); }
+    }
+    .btn {
+      background: #ff4d6d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #e63946;
+      transform: scale(1.05);
+    }
+    #secret {
+      display: none;
+      margin-top: 15px;
+      font-style: italic;
+      color: #6a0572;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  
+  <div class="container">
+    <h1>Happy Birthday, Sayangku 🎂</h1>
+    <p>Hari ini spesial banget, sama kayak kamu di hidupku 💕</p>
+    <p>Semoga senyum kamu terus jadi alasan aku bahagia ✨</p>
+    <button class="btn" onclick="showLove()">Klik aku 💌</button>
+    <p id="secret">Aku beruntung banget punya kamu, dan aku janji akan terus sayangin kamu selamanya ❤️</p>
+  </div>
+
+  <script>
+    // Bintang random
+    const starsContainer = document.querySelector('.stars');
+    for (let i = 0; i < 50; i++) {
+      let star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDuration = (2 + Math.random() * 3) + 's';
+      starsContainer.appendChild(star);
+    }
+
+    // Balon random
+    for (let i = 0; i < 10; i++) {
+      let balloon = document.createElement("div");
+      balloon.className = "balloon";
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.background = ["#ff4d6d","#ff99ac","#ffd6e0","#f48fb1"][Math.floor(Math.random()*4)];
+      balloon.style.animationDuration = (6 + Math.random()*5) + "s";
+      document.body.appendChild(balloon);
+    }
+
+    // Pesan rahasia
+    function showLove() {
+      document.getElementById("secret").style.display = "block";
+    }
+  </script>
+</body>
+</html>
